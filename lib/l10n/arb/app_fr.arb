@@ -1,0 +1,12 @@
+{
+    "@@locale": "fr",
+    "listTitle": "Mon flux",
+    "readMoreLabel": "En savoir plus",
+    "pictureTitle": "Image",
+    "postTitle": "Article",
+
+    "errorNoContent": "Aucun article n'est disponible",
+    "errorTimeout": "La connexion a échouée, veuillez vérifier votre réseau puis réessayer",
+    "errorNotAuthorized": "Vous n'avez pas accès à ce contenu.",
+    "errorInternal": "Une erreur inconnue est survenue, merci de réessayer ultérieurement."
+}

@@ -1,0 +1,29 @@
+{
+    "@@locale": "en",
+    "listTitle": "My flux",
+    "@listTitle": {
+        "description": "Text shown in the AppBar of the article list page"
+    },
+
+    "pictureTitle": "Picture",
+    "@pictureTitle": {
+        "description": "Text shown in the AppBar of the picture page"
+    },
+
+    "postTitle": "Post",
+    "@postTitle": {
+        "description": "Text shown in the AppBar of the post page"
+    },
+
+    "readMoreLabel": "Read more",
+    "@readMore": {
+        "description": "Text shown in the bottom button of a post"
+    },
+
+
+
+    "errorNoContent": "No article available.",
+    "errorTimeout": "The connection has failed, please verify your network and try again.",
+    "errorNotAuthorized": "You don't have the permission to see this content.",
+    "errorInternal": "An unknown error occured, please try again later."
+}
