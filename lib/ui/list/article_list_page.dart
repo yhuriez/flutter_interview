@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_interview/app/view/dimens.dart';
+import 'package:flutter_interview/app/view/theme_notifier.dart';
 import 'package:flutter_interview/data/api/api_error_type.dart';
 import 'package:flutter_interview/data/models/article.dart';
 import 'package:flutter_interview/domain/usecases/fetch_articles.dart';
@@ -34,6 +35,12 @@ class ArticleListPage extends StatelessWidget {
             toolbarHeight: toolbarHeight,
             title: Text(AppLocalizations.of(context).listTitle),
             centerTitle: true,
+            actions: [
+              IconButton(
+                onPressed: ThemeNotifier.instance.switchTheme,
+                icon: const Icon(Icons.invert_colors),
+              )
+            ],
           ),
           body: _ArticleListBody(),
         ),
