@@ -16,7 +16,7 @@ class PicturePage extends StatelessWidget {
       builder: (_) => PicturePage(
         articlePicture: articlePicture,
       ),
-      settings: const RouteSettings(name: routeName),
+      settings: RouteSettings(name: '$routeName/${articlePicture.id}'),
     );
   }
 
@@ -30,32 +30,37 @@ class PicturePage extends StatelessWidget {
           title: Text(AppLocalizations.of(context).pictureTitle),
           toolbarHeight: toolbarHeight,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Hero(
-                tag: 'Picture_${articlePicture.id}',
-                child: CachedNetworkImage(
-                  imageUrl: articlePicture.picture.url,
-                  fit: BoxFit.cover,
-                ),
+        body: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: webMaxWidth),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Hero(
+                    tag: 'Picture_${articlePicture.id}',
+                    child: CachedNetworkImage(
+                      imageUrl: articlePicture.picture.url,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: largeSpace,
+                  ),
+                  Text(
+                    articlePicture.title,
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  const SizedBox(
+                    height: smallSpace,
+                  ),
+                  Text(
+                    articlePicture.author,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  )
+                ],
               ),
-              const SizedBox(
-                height: largeSpace,
-              ),
-              Text(
-                articlePicture.title,
-                textAlign: TextAlign.left,
-                style: Theme.of(context).textTheme.labelMedium,
-              ),
-              const SizedBox(
-                height: smallSpace,
-              ),
-              Text(
-                articlePicture.author,
-                style: Theme.of(context).textTheme.bodyMedium,
-              )
-            ],
+            ),
           ),
         ),
       ),

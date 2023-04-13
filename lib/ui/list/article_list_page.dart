@@ -52,16 +52,21 @@ class ArticleListPage extends StatelessWidget {
 class _ArticleListBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(largeSpace),
-      child: BlocBuilder<ArticleListCubit, ArticleListState>(
-        builder: (context, state) {
-          return state.map(
-            loading: (it) => _Loader(),
-            error: (it) => _ErrorView(it.errorType),
-            success: (it) => _ArticleListContent(it.articles),
-          );
-        },
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: webMaxWidth),
+        child: Padding(
+          padding: const EdgeInsets.all(largeSpace),
+          child: BlocBuilder<ArticleListCubit, ArticleListState>(
+            builder: (context, state) {
+              return state.map(
+                loading: (it) => _Loader(),
+                error: (it) => _ErrorView(it.errorType),
+                success: (it) => _ArticleListContent(it.articles),
+              );
+            },
+          ),
+        ),
       ),
     );
   }

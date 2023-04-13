@@ -11,3 +11,5 @@ const xlargeSpace = 20.0;
 const pictureHeight = 160.0;
 
 const toolbarHeight = 70.0;
+
+const webMaxWidth = 600.0;

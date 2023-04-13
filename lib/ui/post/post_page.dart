@@ -15,7 +15,7 @@ class PostPage extends StatelessWidget {
       builder: (_) => PostPage(
         articlePost: post,
       ),
-      settings: const RouteSettings(name: routeName),
+      settings: RouteSettings(name: '$routeName/${post.id}'),
     );
   }
 
@@ -29,23 +29,28 @@ class PostPage extends StatelessWidget {
           toolbarHeight: toolbarHeight,
           title: Text(AppLocalizations.of(context).postTitle),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: largeSpace),
-          child: ListView(
-            children: [
-              Text(
-                articlePost.title,
-                style: Theme.of(context).textTheme.labelMedium,
-              ),
-              const SizedBox(
-                height: baseSpace,
-              ),
-              Text(
-                articlePost.text,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
+        body: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: webMaxWidth),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: largeSpace),
+              child: ListView(
+                children: [
+                  Text(
+                    articlePost.title,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  const SizedBox(
+                    height: baseSpace,
+                  ),
+                  Text(
+                    articlePost.text,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
 
-            ],
+                ],
+              ),
+            ),
           ),
         ),
       ),
